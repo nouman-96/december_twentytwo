@@ -45,7 +45,16 @@ impl Food{
         println!("{:?}",self.calories);
     }
 } // impl method for struct type 
-
+impl Foody{ // creating associative function
+    fn UDF (name:String,price:u16,serving:u8) -> Foody{
+        Foody{
+            name,
+            price,
+            serving,
+        }
+    }
+    
+}
 // difference betwen method and function
 /*
 method is implemented on the structure define on the function
@@ -74,6 +83,8 @@ fn main() {
     println!("{:?}",h);
     let Foody_1 = UDF("Banana".to_string(),50,12);
     println!("{:?}",Foody_1);
+    let Foody_2 = Foody::UDF("Apple".to_string(),120,2);
+    println!("{:?}",Foody_2);
 
 }
 fn print(almond:&mut Food){
@@ -85,5 +96,4 @@ fn UDF (name:String,price:u16,serving:u8) -> Foody{
         price,
         serving,
     }
-
 }
