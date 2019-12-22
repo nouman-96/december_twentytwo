@@ -5,23 +5,30 @@ struct Food{
     class : String,
     season: String,
 }
-
+#[derive(Debug)]
 struct Rectangle {
     width: u32,
     height: u32,
 }
+#[derive(Debug)]
 struct Team{
     name : String,
     score: u32,
 }
+#[derive(Debug)]
+struct Foody{
+    name : String,
+    price : u16,
+    serving: u8,
+}
 impl Team{
-    fn high(&self,other: &Team) -> u32{
+    fn high(self,other:Team) -> Team{
         if self.score > other.score{
-            self.score
+            self
         }
         else 
         {
-            other.score
+            other
         }
     }
 }
@@ -62,11 +69,21 @@ fn main() {
     );
     let team1 = Team{name :"Srilanka".to_string(), score : 560};
     let team2 = Team{name : "Pakistan".to_string(), score : 480};
-    let high_score:u32 = team1.high(&team2);
+    let h= team1.high(team2);
 
-    println!("In main : {}",high_score);
+    println!("{:?}",h);
+    let Foody_1 = UDF("Banana".to_string(),50,12);
+    println!("{:?}",Foody_1);
 
 }
 fn print(almond:&mut Food){
     println!("{:?}",almond);
+}
+fn UDF (name:String,price:u16,serving:u8) -> Foody{
+    Foody{
+        name,
+        price,
+        serving,
+    }
+
 }
